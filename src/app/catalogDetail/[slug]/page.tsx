@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
-import Menu from "../../../../assets/images/menu.png";
+// import Menu from "../../../../assets/images/menu.png";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -363,7 +363,7 @@ export default function CatalogDetail({ params }: any) {
                 </label>
               </div>
               <Button className="text-[14px] border font-normal hover:brightness-[0.95] px-6 h-[30px] rounded-[4px] bg-[#ffffff] hover:bg-[#F4F4F4] text-black flex items-center">
-                <Image className="w-[16px] h-[16px]" src={Menu} alt="no img" />
+                {/* <Image className="w-[16px] h-[16px]" src={Menu} alt="no img" /> */}
                 По популярности
               </Button>
             </div>
