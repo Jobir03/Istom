@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import Router from 'next/router';
 
 // Set the base URL for the API from environment variables
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseURL = "https://api.istombroker.ru";
 
 // Create an axios instance with default headers and base URL
 const apiClient = axios.create({
