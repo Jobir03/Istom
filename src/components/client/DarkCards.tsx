@@ -49,12 +49,13 @@ const DarkCards = () => {
             className="-top-[110px] object-contain absolute z-10 w-[280px]"
             loading="lazy"
           />
-          <div className="max-w-[300px] w-full mt-auto py-8">
+          <div className="max-w-[380px] w-full mt-auto py-8">
             <h3 className="text-[18px] md:text-[25px] font-bold font-cygre text-white">
-              Качество
+              Доставка
             </h3>
             <p className="text-[#A7A8AA] font-aeonic fon leading-tight">
-              Высокое качество печати и ультратонкая эластичная пленка
+              Отправляем заказы в течение 1-2 рабочих дней, бесплатная доставка
+              от 2000 ₽
             </p>
           </div>
         </div>
@@ -73,12 +74,12 @@ const DarkCards = () => {
             className="-top-[110px] object-contain absolute z-10 w-[280px]"
             loading="lazy"
           />
-          <div className="max-w-[300px] w-full mt-auto py-8">
+          <div className="max-w-[380px] w-full mt-auto py-8">
             <h3 className="text-[18px] md:text-[25px] font-bold font-cygre text-white">
-              Качество
+              Сотрудничество
             </h3>
             <p className="text-[#A7A8AA] font-aeonic leading-tight">
-              Высокое качество печати и ультратонкая эластичная пленка
+              Приглашаем к сотрудничеству партнёров по всему миру
             </p>
           </div>
         </div>

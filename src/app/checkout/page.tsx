@@ -201,10 +201,12 @@ const Checkout = () => {
               <table className="w-full border-collapse">
                 <thead className="font-aeonic text-[#A7A7B2]">
                   <tr className="border-b text-xs md:text-sm">
-                    <th className="text-left py-4 md:py-6 font-normal w-[40%] ">
-                      НАИМЕНОВАНИЕ ТОВАР
+                    <th className="text-left py-4 md:py-6 uppercase font-normal w-[40%] ">
+                      Наименование товара
                     </th>
-                    <th className="text-center py-4 md:py-6 w-[20%]"></th>
+                    <th className="text-center py-4 font-normal uppercase md:py-6 w-[20%]">
+                      Кол-во
+                    </th>
                     <th className="text-right py-4 md:py-6 font-normal w-[25%]">
                       ЦЕНА
                     </th>
@@ -219,7 +221,10 @@ const Checkout = () => {
                       <td className="text-center py-4 md:py-6 text-sm md:text-base">
                         x{item?.quantity}
                       </td>
-                      <td className="text-center py-4 md:py-6 font-bold text-[18px] md:text-[20px]">
+                      <td
+                        align="right"
+                        className="text-end py-4 md:py-6 font-bold text-[18px] md:text-[20px]"
+                      >
                         {item?.price * item?.quantity} ₽
                       </td>
                     </tr>

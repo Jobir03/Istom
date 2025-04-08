@@ -1,6 +1,6 @@
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import Router from 'next/router';
+import axios from "axios";
+import Cookies from "js-cookie";
+import Router from "next/router";
 
 // Set the base URL for the API from environment variables
 const baseURL = "https://api.istombroker.ru";
@@ -9,9 +9,9 @@ const baseURL = "https://api.istombroker.ru";
 const apiClient = axios.create({
   baseURL,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
-  withCredentials: true, // Allows sending cookies (important for HttpOnly refresh token)
+  withCredentials: true,
 });
 
 // Function to refresh the access token using the refresh token (handled via HttpOnly cookies)
@@ -28,17 +28,17 @@ const refreshToken = async () => {
     const { token } = response.data;
 
     // Store the new token in cookies for client-side use (but not refresh_token!)
-    Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
+    Cookies.set("token", token, { secure: true, sameSite: "Strict" });
 
     return token;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error(
-        'Error refreshing token:',
+        "Error refreshing token:",
         error.response?.data || error.message
       );
     } else {
-      console.error('Error refreshing token:', error);
+      console.error("Error refreshing token:", error);
     }
     throw error;
   }
@@ -47,7 +47,7 @@ const refreshToken = async () => {
 // Request interceptor to add the Authorization header with the access token
 apiClient.interceptors.request.use(
   (config) => {
-    const token = Cookies.get('token');
+    const token = Cookies.get("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -63,7 +63,7 @@ apiClient.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (originalRequest.url.includes('/account/signin/')) {
+    if (originalRequest.url.includes("/account/signin/")) {
       return Promise.reject(error);
     }
 
@@ -76,12 +76,12 @@ apiClient.interceptors.response.use(
 
         return apiClient(originalRequest);
       } catch (err) {
-        console.error('Token refresh failed, redirecting to login...');
+        console.error("Token refresh failed, redirecting to login...");
 
-        Cookies.remove('token');
+        Cookies.remove("token");
 
-        if (typeof window !== 'undefined') {
-          Router.push('/login');
+        if (typeof window !== "undefined") {
+          Router.push("/login");
         }
 
         return Promise.reject(err);

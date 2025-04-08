@@ -69,18 +69,18 @@ export default function CatalogButton() {
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger onMouseEnter={() => setIsOpen(true)} className="">
         <div className="catalog">
-          <Link href="/catalog">
+          <Link href="/catalog" className="relative block">
+            <div className="w-[40px] h-[66px] bg-[#FFB224] absolute -left-[1px] -top-[.2px] rounded-[8px] flex justify-center items-center">
+              <Image
+                src={CatalogIcon}
+                alt="Istom Logo"
+                className="object-contain"
+                priority
+              />
+            </div>
             <Button
-              className={`text-[15px] font-cygre tracking-wide   relative overflow-hidden px-6 bg-[#111318] font-bold hover:bg-[#111318] hover:brightness-[0.95] h-[65px] w-[170px] rounded-[8px]`}
+              className={`text-[15px] font-cygre tracking-wide hover:brightness-1  px-6 bg-[#111318] font-bold hover:bg-[#111318]  h-[65px] w-[170px] rounded-[8px]`}
             >
-              <div className="w-[40px] bg-[#FFB224] h-full absolute left-0 top-0 rounded-[8px] flex justify-center items-center">
-                <Image
-                  src={CatalogIcon}
-                  alt="Istom Logo"
-                  className="object-contain"
-                  priority
-                />
-              </div>
               Каталог
             </Button>
           </Link>

@@ -37,8 +37,8 @@ export default function Cart() {
       <div className="container min-h-[450px] md:min-h-[600px]">
         <CustomBreadcrumb
           items={[
-            { name: "Главная", link: "/client/home" },
-            { name: "Корзина", link: "/client/cart" },
+            { name: "Главная", link: "/home" },
+            { name: "Корзина", link: "/cart" },
           ]}
         />
         <div className="flex gap-14 mt-4 h-full">
@@ -52,7 +52,7 @@ export default function Cart() {
                   <thead className="font-aeonic text-[#111318]">
                     <tr className="border-b text-[15px]">
                       <th className="text-left py-6 font-normal w-auto">
-                        НАИМЕНОВАНИЕ ТОВАР
+                        НАИМЕНОВАНИЕ ТОВАРA
                       </th>
                       <th className="text-center py-6 font-normal w-[15%]">
                         ЦЕНА
@@ -89,7 +89,7 @@ export default function Cart() {
                   Ваша корзина пуста
                 </h3>
                 <p className="text-[14px] md:text-[18px]">
-                  <Link href="/client/catalog" className="text-[#0077FF]">
+                  <Link href="/catalog" className="text-[#0077FF]">
                     Нажмите здесь
                   </Link>
                   , чтобы продолжить покупки

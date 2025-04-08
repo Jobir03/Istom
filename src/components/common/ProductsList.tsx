@@ -20,14 +20,14 @@ const ProductsList = ({
   //   });
   // }, []);
 
-  useEffect(() => {
-    getAllProducts()
-      .then((res) => {
-        console.log(res?.results);
-        setProducts(res?.results);
-      })
-      .catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   getAllProducts()
+  //     .then((res) => {
+  //       console.log(res?.results);
+  //       setProducts(res?.results);
+  //     })
+  //     .catch(console.error);
+  // }, []);
 
   return (
     <section>
@@ -49,9 +49,9 @@ const ProductsList = ({
               <h2 className="text-[18px] md:text-[30px] font-bold text-white leading-tight font-cygre">
                 НОВОГОДНИЕ СКИДКИ!
               </h2>
-              <Button className=" mt-3 font-aeonic bg-[#FFFFFF] text-xs md:text-[15px] font-bold rounded-full h-[38px] md:h-[54px] w-[130px] md:w-[192px] text-[#FFB224] ">
+              <button className="mt-3 font-aeonic bg-[#FFFFFF] hover:bg-[#FFFFFF] hover:brightness-100 text-xs md:text-[15px] font-bold rounded-full h-[38px] md:h-[54px] w-[130px] md:w-[192px] text-[#FFB224] ">
                 Скидки до 60%
-              </Button>
+              </button>
             </div>
           )}
         </div>

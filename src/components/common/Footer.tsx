@@ -13,12 +13,15 @@ const Footer: React.FC = () => {
     <footer className=" bg-[#F4F4F4] md:h-[240px] rounded-t-md py-4 font-aeonic">
       <div className="container flex flex-col md:flex-row md:items-end justify-between space-y-6 h-full">
         <div className="flex flex-col h-full justify-between">
-          <Image
-            src={Logo}
-            alt="logo"
-            className="object-contain w-[200px] md:w-[260px]"
-            loading="lazy"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="logo"
+              className="object-contain w-[200px] md:w-[260px]"
+              loading="lazy"
+            />
+          </Link>
+
           <div className="flex gap-3 mt-4">
             <Link
               href={"#"}
@@ -44,7 +47,7 @@ const Footer: React.FC = () => {
             </Link>
           </div>
           <p className="text-[#787878] text-[15px] hidden md:block">
-            @2024 Copyright
+            @{new Date().getFullYear()} Copyright
           </p>
         </div>
         <div className="h-full flex flex-col space-y-8  justify-end">
@@ -65,7 +68,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex justify-between md:justify-end">
             <p className="text-[#787878] text-[12px] md:text-[15px] md:hidden">
-              @2024 Copyright
+              @{new Date().getFullYear()} Copyright
             </p>
             <p className="text-[#787878] text-[12px] md:text-[15px]">
               Сделано в UserTech

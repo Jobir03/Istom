@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
                 <div className="flex space-x-4 text-[14px]">
                   <Link
                     href="/favorite"
-                    className="flex flex-col space-y-1 font-normal items-center justify-center"
+                    className="flex flex-col space-y-1 font-normal items-center justify-between"
                   >
                     <Image
                       src={FavoriteIcon}
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
                   </Link>
                   <Link
                     href="/cart"
-                    className="flex flex-col space-y-1 font-normal items-center justify-center "
+                    className="flex flex-col space-y-1 font-normal items-center justify-between"
                   >
                     <Image
                       src={CartIcon}

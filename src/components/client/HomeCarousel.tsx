@@ -85,9 +85,11 @@ const HomeCarousel = () => {
                   Обеспечьте свою практику лучшими инструментами от ведущих
                   производителей
                 </p>
-                <Button className="text-[12px] md:text-[14px] font-aeonic mt-6 hover:brightness-[0.95] px-5 h-[60px] md:h-[80px] w-full md:w-[260px] rounded-[4px] md:rounded-[8px] text-white font-bold">
-                  В каталог
-                </Button>
+                <Link href="/catalog">
+                  <Button className="text-[12px] md:text-[14px] bg-yellow font-aeonic mt-6 hover:brightness-[0.95] px-5 h-[60px] md:h-[80px] w-full md:w-[260px] rounded-[4px] md:rounded-[8px] text-white font-bold">
+                    В каталог
+                  </Button>
+                </Link>
               </div>
               <div className="relative flex items-center   w-full h-full">
                 <Image

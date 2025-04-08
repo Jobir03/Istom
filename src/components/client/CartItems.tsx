@@ -21,7 +21,7 @@ const CartItem = ({ item, index }: { item: any; index: number }) => {
       <tr className="hidden lg:table-row">
         <td className="pb-4">
           <div className="flex items-center  gap-4 py-5 font-cygre">
-            <Link href={`/client/product/${item.id}`}>
+            <Link href={`/product/${item.id}`}>
               <Image
                 src={item.image}
                 alt={item.title}
