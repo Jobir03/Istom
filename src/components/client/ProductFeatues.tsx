@@ -1,4 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import Rating from "../Rating/Rating"
 const ProductFeatues = ({ item }: any) => {
   return (
     <div>
@@ -75,7 +77,11 @@ const ProductFeatues = ({ item }: any) => {
           value="rate"
           className="product-card p-4 rounded-[10px] min-h-[150px] md:min-h-[226px]"
         >
-          <div className="">Rate</div>
+          <div className="">
+            <div >
+              <Rating />
+            </div>
+          </div>
         </TabsContent>
       </Tabs>
     </div>

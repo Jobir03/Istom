@@ -155,3 +155,7 @@
     justify-content: center;
   }
 }
+
+.swiper-thumbs  .swiper-slide-thumb-active{
+  border: 1px solid #ffb224 !important;
+}

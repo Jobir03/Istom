@@ -50,7 +50,7 @@ const Checkout = () => {
     <div className="py-6 container min-h-[250px] md:min-h-[450px]">
       <CustomBreadcrumb
         items={[
-          { name: "Главная", link: "/home" },
+          { name: "Главная", link: "/" },
           { name: "Корзина", link: "/cart" },
           { name: "Оформление заказа", link: "/checkout" },
         ]}
@@ -95,14 +95,14 @@ const Checkout = () => {
               </div>
               <div className="col-span-6 space-y-1">
                 <Label
-                  htmlFor="email"
+                  htmlFor="phone"
                   className="text-[#84818A] font-normal font-aeonic text-[13px] md:text-[15px]"
                 >
                   Телефон<span className="text-[#FFB224]">*</span>
                 </Label>
                 <Input
-                  type="email"
-                  id="email"
+                  type="phone"
+                  id="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+7 (___) ___-__-__"

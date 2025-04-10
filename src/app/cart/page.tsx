@@ -37,7 +37,7 @@ export default function Cart() {
       <div className="container min-h-[450px] md:min-h-[600px]">
         <CustomBreadcrumb
           items={[
-            { name: "Главная", link: "/home" },
+            { name: "Главная", link: "/" },
             { name: "Корзина", link: "/cart" },
           ]}
         />

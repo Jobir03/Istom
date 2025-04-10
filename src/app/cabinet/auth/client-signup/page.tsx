@@ -12,7 +12,7 @@ import { login } from "@/services.jsx/auth";
 import Cookie from "js-cookie";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Login = () => {
+const Signup = () => {
   const [checked, setChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
@@ -50,16 +50,16 @@ const Login = () => {
     <div className="py-6 container min-h-[250px] md:min-h-[450px]">
       <div
         style={{ backgroundImage: `url(${bgImage.src})` }}
-        className="h-[470px] bg-no-repeat bg-cover bg-center rounded-[10px]"
+        className="h-[700px] bg-no-repeat bg-cover bg-center rounded-[10px]"
       >
         <div className="p-8 text-white font-aeonic">
           <h1 className="text-[25px] md:text-[25px] font-bold font-cygre">
-            Войти как клиент
+          Регистрация
           </h1>
           <div className="flex items-center text-[15px]">
-            <p>Нет аккаунта?</p>
-            <Link href="/cabinet/auth/client-signup" className="text-black ml-2">
-              Создать аккаунт
+            <p>Есть аккаунт?</p>
+            <Link href="/cabinet/auth/client-login" className="text-black ml-2">
+            Войти
             </Link>
           </div>
           <form action="" className="max-w-[430px] mt-4" onSubmit={handleLogin}>
@@ -68,7 +68,7 @@ const Login = () => {
                 htmlFor="name"
                 className="font-normal font-aeonic text-[13px] md:text-[15px]"
               >
-                Имя<span className="text-[#FFB224]">*</span>
+                ФИО<span className="text-[#FFB224]">*</span>
               </Label>
               <Input
                 id="name"
@@ -81,34 +81,79 @@ const Login = () => {
             </div>
             <div className="space-y-1 mt-2 relative">
               <Label
-                htmlFor="password"
+                htmlFor="email"
                 className="font-normal font-aeonic text-[13px] md:text-[15px]"
               >
-                Пароль<span className="text-[#FFB224]">*</span>
+                Электронная почта<span className="text-[#FFB224]">*</span>
               </Label>
               <Input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Введите пароль"
+                id="email"
+                type="email"
+                placeholder="Введите ваш E-mail"
                 className="w-full text-[15px] px-5 font-aeonic h-[57px] md:h-[63px] focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 rounded-[3px] border-0 text-base bg-[#FFC55B]  placeholder:text-[#FFEFD2] relative"
                 onChange={(e) =>
-                  setInputValue({ ...inputValue, password: e.target.value })
+                  setInputValue({ ...inputValue, login: e.target.value })
                 }
               />
-              {showPassword ? (
-                <EyeIcon
-                  className="absolute right-5 top-[56px] -translate-y-1/2 cursor-pointer text-white"
-                  size={22}
-                  onClick={() => setShowPassword(false)}
-                />
-              ) : (
-                <EyeOffIcon
-                  className="absolute right-5 top-[56px] -translate-y-1/2 cursor-pointer text-white"
-                  size={22}
-                  onClick={() => setShowPassword(true)}
-                />
-              )}
             </div>
+            <div className="space-y-1 mt-2 relative">
+                <Label
+                    htmlFor="password"
+                    className="font-normal font-aeonic text-[13px] md:text-[15px]"
+                >
+                    Пароль<span className="text-[#FFB224]">*</span>
+                </Label>
+                <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Введите пароль"
+                    className="w-full text-[15px] px-5 font-aeonic h-[57px] md:h-[63px] focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 rounded-[3px] border-0 text-base bg-[#FFC55B]  placeholder:text-[#FFEFD2] relative"
+                    onChange={(e) =>
+                    setInputValue({ ...inputValue, password: e.target.value })
+                    }
+                />
+                {showPassword ? (
+                    <EyeIcon
+                    className="absolute right-2 top-[55px] -translate-y-1/2 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                    />
+                ) : (
+                    <EyeOffIcon
+                    className="absolute right-2 top-[55px] -translate-y-1/2 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                    />
+                )}
+            </div>
+            <div className="space-y-1 mt-2 relative">
+                <Label
+                    htmlFor="password"
+                    className="font-normal font-aeonic text-[13px] md:text-[15px]"
+                >
+                    Повторите пароль<span className="text-[#FFB224]">*</span>
+                </Label>
+                <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Введите ваш пароль еще раз"
+                    className="w-full text-[15px] px-5 font-aeonic h-[57px] md:h-[63px] focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 rounded-[3px] border-0 text-base bg-[#FFC55B]  placeholder:text-[#FFEFD2] relative"
+                    onChange={(e) =>
+                    setInputValue({ ...inputValue, password: e.target.value })
+                    }
+                />
+                {showPassword ? (
+                    <EyeIcon
+                    className="absolute right-2 top-[55px] -translate-y-1/2 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                    />
+                ) : (
+                    <EyeOffIcon
+                    className="absolute right-2 top-[55px] -translate-y-1/2 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                    />
+                )}
+            </div>
+
+
             <Button
               type="submit"
               className="bg-[#111318] hover:bg-black rounded-[3px] mt-5 h-[65px] w-full"
@@ -139,4 +184,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

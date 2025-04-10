@@ -41,7 +41,7 @@ const HomeCategory = () => {
           </div>
         </div>
       ))}
-      {/* <div className='bg-[#F6F6F6] h-[126px] md:h-[233px] md:rounded-[10px] flex relative overflow-hidden'>
+      <div className='bg-[#F6F6F6] h-[126px] md:h-[233px] md:rounded-[10px] flex relative overflow-hidden'>
         <div className='absolute right-0 t-0 w-[85%] md:w-full h-full'>
           <Image
             src={CategoryBg}
@@ -54,7 +54,7 @@ const HomeCategory = () => {
             Стоматотологические материалы
           </h4>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
