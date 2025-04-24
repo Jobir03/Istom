@@ -11,6 +11,14 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import CatalogIcon from "@/assets/icons/catalog-icon.svg";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "../ui/navigation-menu";
 
 interface Category {
   title: string;
@@ -66,94 +74,189 @@ export default function CatalogButton() {
   ];
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger onMouseEnter={() => setIsOpen(true)} className="">
-        <div className="catalog">
-          <Link href="/catalog" className="relative block">
-            <div className="w-[40px] h-[66px] bg-[#FFB224] absolute -left-[1px] -top-[.2px] rounded-[8px] flex justify-center items-center">
-              <Image
-                src={CatalogIcon}
-                alt="Istom Logo"
-                className="object-contain"
-                priority
-              />
-            </div>
-            <Button
-              className={`text-[15px] font-cygre tracking-wide hover:brightness-1  px-6 bg-[#111318] font-bold hover:bg-[#111318]  h-[65px] w-[170px] rounded-[8px]`}
-            >
-              Каталог
-            </Button>
-          </Link>
-        </div>
-      </PopoverTrigger>
-      <PopoverContent className="max-w-[1200px] w-full p-0" align="start">
-        <div className="flex h-[650px]">
-          {/* Left Column - Main Categories */}
-          <div className="w-[300px] border-r">
-            <div className="p-4 ">
-              <h2 className="text-[30px] font-semibold font-cygre">Каталог</h2>
-            </div>
-            <div className="overflow-auto font-aeonic h-[calc(100%-57px)]">
-              {categories.map((category) => (
-                <button
-                  key={category.title}
-                  onClick={() => setSelectedCategory(category.title)}
-                  className={`w-full text-[15px] font-normal text-[#A7A7B2] text-left px-4 py-3 hover:bg-gray-100 transition-colors ${
-                    selectedCategory === category.title ? "bg-gray-100" : ""
-                  }`}
-                >
-                  {category.title}
-                </button>
-              ))}
-            </div>
-          </div>
+    // <Popover open={isOpen} onOpenChange={setIsOpen}>
+    //   <PopoverTrigger onMouseEnter={() => setIsOpen(true)} className="">
+    //     <div className="catalog">
+    //       <Link href="/catalog" className="relative block">
+    //         <div className="w-[40px] h-[66px] bg-[#FFB224] absolute -left-[1px] -top-[.2px] rounded-[8px] flex justify-center items-center">
+    //           <Image
+    //             src={CatalogIcon}
+    //             alt="Istom Logo"
+    //             className="object-contain"
+    //             priority
+    //           />
+    //         </div>
+    //         <Button
+    //           className={`text-[15px] font-cygre tracking-wide hover:brightness-1  px-6 bg-[#111318] font-bold hover:bg-[#111318]  h-[65px] w-[170px] rounded-[8px]`}
+    //         >
+    //           Каталог
+    //         </Button>
+    //       </Link>
+    //     </div>
+    //   </PopoverTrigger>
+    //   <PopoverContent className="max-w-[1200px] w-full p-0" align="start">
+    //     <div className="flex h-[650px]">
+    //       {/* Left Column - Main Categories */}
+    //       <div className="w-[300px] border-r">
+    //         <div className="p-4 ">
+    //           <h2 className="text-[30px] font-semibold font-cygre">Каталог</h2>
+    //         </div>
+    //         <div className="overflow-auto font-aeonic h-[calc(100%-57px)]">
+    //           {categories.map((category) => (
+    //             <button
+    //               key={category.title}
+    //               onClick={() => setSelectedCategory(category.title)}
+    //               className={`w-full text-[15px] font-normal text-[#A7A7B2] text-left px-4 py-3 hover:bg-gray-100 transition-colors ${
+    //                 selectedCategory === category.title ? "bg-gray-100" : ""
+    //               }`}
+    //             >
+    //               {category.title}
+    //             </button>
+    //           ))}
+    //         </div>
+    //       </div>
 
-          {selectedCategory && (
-            <div className="flex-1">
-              <div className="flex items-center justify-between p-4 ">
-                <div className="flex items-center gap-3">
-                  <h2 className="text-[30px] font-semibold font-cygre">
-                    {selectedCategory}
-                  </h2>
-                  {categories.find((c) => c.title === selectedCategory)
-                    ?.count && (
-                    <p className="text-sm font-semibold font-aeonic text-[#A7A7B2]">
-                      {
-                        categories.find((c) => c.title === selectedCategory)
-                          ?.count
-                      }{" "}
-                      товаров
-                    </p>
-                  )}
+    //       {selectedCategory && (
+    //         <div className="flex-1">
+    //           <div className="flex items-center justify-between p-4 ">
+    //             <div className="flex items-center gap-3">
+    //               <h2 className="text-[30px] font-semibold font-cygre">
+    //                 {selectedCategory}
+    //               </h2>
+    //               {categories.find((c) => c.title === selectedCategory)
+    //                 ?.count && (
+    //                 <p className="text-sm font-semibold font-aeonic text-[#A7A7B2]">
+    //                   {
+    //                     categories.find((c) => c.title === selectedCategory)
+    //                       ?.count
+    //                   }{" "}
+    //                   товаров
+    //                 </p>
+    //               )}
+    //             </div>
+    //             <button
+    //               onClick={() => setIsOpen(false)}
+    //               className="p-2 hover:bg-gray-100 rounded-full"
+    //             >
+    //               <X className="w-4 h-4" />
+    //             </button>
+    //           </div>
+    //           <div className="grid grid-cols-2 gap-6 p-6 overflow-auto h-[calc(100%-73px)]">
+    //             {categories
+    //               .find((c) => c.title === selectedCategory)
+    //               ?.subcategories?.map((sub) => (
+    //                 <div
+    //                   key={sub.title}
+    //                   className="group cursor-pointer font-aeonic"
+    //                 >
+    //                   <div className="flex  items-center text-[#A7A7B2] ">
+    //                     <span className="group-hover:text-blue-600  font-normal transition-colors">
+    //                       {sub.title}
+    //                     </span>
+    //                     <span className="text-sm ml-2">({sub.count})</span>
+    //                   </div>
+    //                 </div>
+    //               ))}
+    //           </div>
+    //         </div>
+    //       )}
+    //     </div>
+    //   </PopoverContent>
+    // </Popover>
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>
+            <div className="catalog">
+              <Link href="/catalog" className="relative block">
+                <div className="w-[40px] h-[66px] bg-[#FFB224] absolute -left-[1px] -top-[.2px] rounded-[8px] flex justify-center items-center">
+                  <Image
+                    src={CatalogIcon}
+                    alt="Istom Logo"
+                    className="object-contain"
+                    priority
+                  />
                 </div>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full"
+                <Button
+                  className={`text-[15px] font-cygre tracking-wide hover:brightness-1  px-6 bg-[#111318] font-bold hover:bg-[#111318]  h-[65px] w-[170px] rounded-[8px]`}
                 >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="grid grid-cols-2 gap-6 p-6 overflow-auto h-[calc(100%-73px)]">
-                {categories
-                  .find((c) => c.title === selectedCategory)
-                  ?.subcategories?.map((sub) => (
-                    <div
-                      key={sub.title}
-                      className="group cursor-pointer font-aeonic"
-                    >
-                      <div className="flex  items-center text-[#A7A7B2] ">
-                        <span className="group-hover:text-blue-600  font-normal transition-colors">
-                          {sub.title}
-                        </span>
-                        <span className="text-sm ml-2">({sub.count})</span>
-                      </div>
-                    </div>
-                  ))}
-              </div>
+                  Каталог
+                </Button>
+              </Link>
             </div>
-          )}
-        </div>
-      </PopoverContent>
-    </Popover>
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="flex w-screen h-[650px]">
+              {/* Left Column - Main Categories */}
+              <div className="w-[300px] border-r">
+                <div className="p-4 ">
+                  <h2 className="text-[30px] font-semibold font-cygre">
+                    Каталог
+                  </h2>
+                </div>
+                <div className="overflow-auto font-aeonic h-[calc(100%-57px)]">
+                  {categories.map((category) => (
+                    <button
+                      key={category.title}
+                      onClick={() => setSelectedCategory(category.title)}
+                      className={`w-full text-[15px] font-normal text-[#A7A7B2] text-left px-4 py-3 hover:bg-gray-100 transition-colors ${
+                        selectedCategory === category.title ? "bg-gray-100" : ""
+                      }`}
+                    >
+                      {category.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {selectedCategory && (
+                <div className="flex-1">
+                  <div className="flex items-center justify-between p-4 ">
+                    <div className="flex items-center gap-3">
+                      <h2 className="text-[30px] font-semibold font-cygre">
+                        {selectedCategory}
+                      </h2>
+                      {categories.find((c) => c.title === selectedCategory)
+                        ?.count && (
+                        <p className="text-sm font-semibold font-aeonic text-[#A7A7B2]">
+                          {
+                            categories.find((c) => c.title === selectedCategory)
+                              ?.count
+                          }{" "}
+                          товаров
+                        </p>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="p-2 hover:bg-gray-100 rounded-full"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-6 p-6 overflow-auto h-[calc(100%-73px)]">
+                    {categories
+                      .find((c) => c.title === selectedCategory)
+                      ?.subcategories?.map((sub) => (
+                        <div
+                          key={sub.title}
+                          className="group cursor-pointer font-aeonic"
+                        >
+                          <div className="flex  items-center text-[#A7A7B2] ">
+                            <span className="group-hover:text-blue-600  font-normal transition-colors">
+                              {sub.title}
+                            </span>
+                            <span className="text-sm ml-2">({sub.count})</span>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 }

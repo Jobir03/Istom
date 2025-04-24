@@ -12,7 +12,7 @@ const ProductsList = ({
   title: string;
   adsBanner?: boolean;
 }) => {
-  const [products, setProducts] = useState([{ name: "" }]);
+  const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   GetData("api/v1/product/products/?is_discount=true").then((res) => {
@@ -20,14 +20,14 @@ const ProductsList = ({
   //   });
   // }, []);
 
-  // useEffect(() => {
-  //   getAllProducts()
-  //     .then((res) => {
-  //       console.log(res?.results);
-  //       setProducts(res?.results);
-  //     })
-  //     .catch(console.error);
-  // }, []);
+  useEffect(() => {
+    getAllProducts()
+      .then((res) => {
+        console.log(res?.results);
+        setProducts(res?.results);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <section>
