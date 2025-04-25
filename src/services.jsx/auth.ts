@@ -1,4 +1,4 @@
-import apiClient from './apiClient';
+import apiClient from "./apiClient";
 
 interface AuthResponse {
   access: string;
@@ -6,12 +6,31 @@ interface AuthResponse {
 }
 
 export const login = async (
-  login: string,
+  email: string,
   password: string | number,
   is_partner?: boolean
 ): Promise<AuthResponse> => {
-  const response = await apiClient.post('/auth/login', {
-    login,
+  const response = await apiClient.post("/login/", {
+    email,
+    password,
+    // is_partner,
+  });
+  return response.data;
+};
+
+export const signup = async (
+  full_name: string,
+  email: string,
+  phone_number: string,
+  inn: string,
+  password: string,
+  is_partner?: boolean
+): Promise<AuthResponse> => {
+  const response = await apiClient.post("/register/", {
+    full_name,
+    email,
+    inn,
+    phone_number,
     password,
     is_partner,
   });
@@ -19,6 +38,6 @@ export const login = async (
 };
 
 export const getProfile = async () => {
-  const response = await apiClient.get('/profile');
+  const response = await apiClient.get("/profile");
   return response.data;
 };

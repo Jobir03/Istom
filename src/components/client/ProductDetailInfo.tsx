@@ -63,10 +63,10 @@ const ProductDetailInfo: React.FC<ProductInfo> = ({ productData }) => {
       </div>
       <div className="flex items-center gap-2 font-cygre mt-4">
         <span className="text-[25px] font-bold">
-          {productData?.price ? productData.price : "18 200"} ₽
+          {productData?.price ? productData.price : 0} ₽
         </span>
         <span className="text-[#A7A7B2] text-[14px] font-bold line-through -translate-y-1">
-          {productData?.old_price ? productData.old_price : "20 000"} ₽
+          {productData?.old_price ? productData.old_price : 0} ₽
         </span>
       </div>
       <div className="h-[65px] mt-2">
@@ -79,7 +79,7 @@ const ProductDetailInfo: React.FC<ProductInfo> = ({ productData }) => {
         </Button>
         <input
           readOnly
-          value={productData?.quantity ? productData.quantity : quantity}
+          value={quantity}
           className="w-[52px] text-center bg-[#F6F6F6] h-full rounded-[5px] mx-2 outline-none font-aeonic text-base font-bold"
         />
         <Button

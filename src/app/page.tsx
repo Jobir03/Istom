@@ -12,7 +12,7 @@ export default function Home() {
         <HomeCategory />
       </div>
       <div className="py-16">
-        <ProductsList title="Рекомендуем для вас" adsBanner />
+        <ProductsList title="Рекомендуем для вас" />
       </div>
       <div className="md:my-16 ">
         <DarkCards />
