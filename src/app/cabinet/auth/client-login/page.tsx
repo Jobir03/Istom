@@ -19,6 +19,7 @@ const Login = () => {
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
+    is_partner: false,
   });
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {

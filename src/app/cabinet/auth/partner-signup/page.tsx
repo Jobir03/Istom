@@ -17,7 +17,10 @@ const Signup = () => {
   const router = useRouter();
 
   const [inputValue, setInputValue] = useState({
-    login: "",
+    full_name: "",
+    email: "",
+    phone_number: "",
+    inn: "",
     password: "",
     is_partner: true,
   });

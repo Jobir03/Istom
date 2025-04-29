@@ -1,8 +1,29 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
+import { getProfile } from "@/services.jsx/auth";
+import React, { useEffect, useState } from "react";
 
 const ProfileData = () => {
+
+
+    const [profile, setProfile] = useState({
+      full_name: "",
+      email: "",
+      phone_number: "",
+      inn: "",
+    });
+  
+    useEffect(() => {
+      getProfile()
+        .then((res) => {
+          setProfile(res);
+          console.log(res);
+        })
+        .catch(console.error);
+    }, []);
+  
+
   return (
     <div className="font-aeonic">
       <h1 className="text-[25px] md:text-[30px] font-bold font-cygre">
@@ -21,6 +42,7 @@ const ProfileData = () => {
             </Label>
             <Input
               id="name"
+              value={profile.full_name}
               placeholder="Введите ваше ФИО"
               className="w-full font-aeonic h-[62px] md:h-[70px] rounded-[3px] text-base bg-[#F8F8F8] border-none placeholder:text-[#A7A7B2]"
             />
@@ -34,6 +56,7 @@ const ProfileData = () => {
             </Label>
             <Input
               id="name"
+              value={profile.email}
               placeholder="Введите ваш E-mail"
               className="w-full  h-[62px] md:h-[70px] rounded-[3px] text-base bg-[#F8F8F8] border-none placeholder:text-[#A7A7B2]"
             />
@@ -50,6 +73,7 @@ const ProfileData = () => {
             </Label>
             <Input
               id="name"
+              value={profile.phone_number}
               placeholder="Ваш номер телефона"
               className="w-full font-aeonic h-[62px] md:h-[70px] rounded-[3px] text-base bg-[#F8F8F8] border-none placeholder:text-[#A7A7B2]"
             />
@@ -63,6 +87,7 @@ const ProfileData = () => {
             </Label>
             <Input
               id="name"
+              value={profile.inn}
               placeholder="ИНН организации"
               className="w-full font-aeonic h-[62px] md:h-[70px] rounded-[3px] text-base bg-[#F8F8F8] border-none placeholder:text-[#A7A7B2]"
             />

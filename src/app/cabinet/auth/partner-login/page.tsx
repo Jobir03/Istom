@@ -66,17 +66,17 @@ const Login = () => {
           <form action="" className="max-w-[430px] mt-4" onSubmit={handleLogin}>
             <div className="space-y-1">
               <Label
-                htmlFor="name"
+                htmlFor="email"
                 className="font-normal font-aeonic text-[13px] md:text-[15px] text-[#5B5B5B]"
               >
-                Имя
+                Электронная почта
               </Label>
               <Input
-                id="name"
+                id="email"
                 onChange={(e) =>
                   setInputValue({ ...inputValue, login: e.target.value })
                 }
-                placeholder="Введите ваше имя"
+                placeholder="Введите ваше электронную почту"
                 className="w-full text-[15px] px-5 font-aeonic h-[57px] md:h-[63px] focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 rounded-[3px] border-0 text-base bg-[#222428]  placeholder:text-[#5B5B5B]"
               />
             </div>
